@@ -1,0 +1,16 @@
+
+
+{% if user.is_authenticated %}
+									<li> <a href="#"><b>Hello {{user.username}}</b></a></li>
+									<li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+									{% else %}
+									Hello 
+please login to continue
+
+<form class="formindex"><div class="go">   <a href="{% url 'accounts:user_login' %}"> Login </a></a></form>
+   if you are new user 
+
+   <form class="formindex"> <a href="{% url 'accounts:user_register' %}"> Register </a></form>
+
+
+	{% endif %}

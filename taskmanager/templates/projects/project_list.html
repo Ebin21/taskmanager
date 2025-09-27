@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Projects</h2>
+  <a href="{% url 'projects:project_create' %}" class="btn btn-primary mb-3">Create New Project</a>
+
+  {% if projects %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Created BY</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for project in projects %}
+      <tr>
+        <td>{{ project.name }}</td>
+        <td>{{ project.get_status_display }}</td>
+        <td>
+          {{ project.created_by.username }} {% if project.created_by_id == user.id %} <span class="badge bg-primary rounded-pill">(you)</span> {% endif %}
+        </td>
+        <td>{{ project.start_date|date:"Y-m-d" }}</td>
+        <td>{{ project.end_date|date:"Y-m-d" }}</td>
+        <td>
+          <a href="{% url 'projects:project_edit' project.pk %}" class="btn btn-sm btn-warning">Edit</a>
+          {% if user.role != "member" %} 
+          <a href="{% url 'projects:project_delete' project.pk %}" class="btn btn-sm btn-danger">Delete</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No projects found.</p>
+  {% endif %}
+</div>
+{% endblock %}

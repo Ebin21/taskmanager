@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}{% if form.instance.pk %}Edit Task{% else %}Create Task{% endif %}{% endblock %}
+{% block content %}
+<h2>{% if form.instance.pk %}Edit Task{% else %}Create Task{% endif %}</h2>
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+  <a href="{% url 'tasks:task_list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,97 @@
+body {
+    background-color: #181a1b;
+    color: #ededed;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/* Navbar styles */
+.navbar, .navbar-dark {
+    background-color: #232526 !important;
+    color: #0ff8fc;
+}
+.navbar-brand {
+    color: #0ff8fc !important;
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+.navbar-nav .nav-link {
+    color: #ededed !important;
+    font-weight: 500;
+}
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:hover {
+    color: #00bcd4 !important;
+}
+
+/* Button styles */
+.btn,
+.btn-primary {
+    background-color: #14c8ee;
+    color: #161716;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 7px 20px;
+    transition: background 0.2s;
+}
+.btn:hover,
+.btn-primary:hover {
+    background-color: #028eab;
+    color: #fff;
+}
+
+/* Secondary (outline) button */
+.btn-outline {
+    background: transparent;
+    border: 1px solid #14c8ee;
+    color: #14c8ee;
+}
+.btn-outline:hover {
+    background: #14c8ee;
+    color: #181a1b;
+}
+
+/* Card styles for forms and centers */
+.card {
+    background-color: #232526;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 2px 8px #00000036;
+}
+.card-header, .card-footer {
+    background: transparent;
+    border-bottom: none;
+    border-top: none;
+}
+
+a, a:visited {
+    color: #09e8fc;
+    text-decoration: none;
+}
+a:hover {
+    color: #b2f2ff;
+}
+
+/* Centered page content */
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input styles */
+input, select, textarea {
+    background: #232526;
+    color: #ededed;
+    border: 1px solid #2b2d2e;
+    border-radius: 4px;
+}
+input:focus, select:focus, textarea:focus {
+    background: #232526;
+    color: #fff;
+    outline: 1px solid #00bcd4;
+}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{% if form.instance.pk %}Edit Project{% else %}Create Project{% endif %}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>{% if form.instance.pk %}Edit Project{% else %}Create Project{% endif %}</h2>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">
+      {% if form.instance.pk %}Update{% else %}Create{% endif %}
+    </button>
+    <a href="{% url 'projects:project_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
